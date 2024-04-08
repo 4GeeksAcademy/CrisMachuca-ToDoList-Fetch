@@ -1,12 +1,151 @@
 
-/* 
+body {
+    background:
+      conic-gradient(at 10% 50%,#0000 75%,#fafafa 0),
+      conic-gradient(at 10% 50%,#0000 75%,#fafafa 0) calc(1*10px) calc(3*10px),
+      conic-gradient(at 10% 50%,#0000 75%,#fafafa 0) calc(2*10px) calc(1*10px),
+      conic-gradient(at 10% 50%,#0000 75%,#fafafa 0) calc(3*10px) calc(4*10px),
+      conic-gradient(at 10% 50%,#0000 75%,#fafafa 0) calc(4*10px) calc(2*10px),
+      conic-gradient(at 50% 10%,#0000 75%,#fafafa 0) 0 calc(4*10px),
+      conic-gradient(at 50% 10%,#0000 75%,#fafafa 0) calc(1*10px) calc(2*10px),
+      conic-gradient(at 50% 10%,#0000 75%,#fafafa 0) calc(2*10px) 0,
+      conic-gradient(at 50% 10%,#0000 75%,#fafafa 0) calc(3*10px) calc(3*10px),
+      conic-gradient(at 50% 10%,#0000 75%,#fafafa 0) calc(4*10px) calc(1*10px),
+      #fefefe;
+    background-size: 50px 50px;
+  }
+  
+  .container {
+    background-color: aliceblue;
+    border: 1px solid rgb(163, 175, 182);
+    padding: 0;
+    width: 60%;
+    min-width: 350px;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  }
+  
+  
+  
+  h1{
+    text-align: center;
+    color:rgb(120, 6, 173);
+    text-decoration: solid ;
+    font-size: 5em;
+    text-shadow: 0px 3px 7px rgba(0,0,0,0.54);
+  }
+  
+  input {
+    margin-left: 30px;
+    border: none;
+    font-size: x-large;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    background-color: transparent;
+    font-family: monospace;
+  }
+  
+  input:focus {
+    outline: none;
+  }
+  
+  ul {
+    padding: 0;
+    margin:0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  
+  li {
+    list-style: none;
+    border-bottom: 1px solid rgb(62, 184, 255);
+    width: 90%;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 30px;
+    font-size: x-large;
+    font-family: monospace;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+  }
+  
+  button {
+    color: red;
+    font-size: x-large;
+    border: none;
+    background-color: transparent;
+    padding-right: 50px;
+    position: absolute; 
+    right: 0; 
+    visibility: hidden; 
+    opacity: 0; 
+    transition: visibility 0s, opacity 0.5s; 
+  }
+  
+  li:hover button { 
+    visibility: visible; 
+    opacity: 1; 
+  }
+  
+  p {
+    padding: 1em;
+    padding-left: 30px;
+    font-family: monospace;
+  }
+  
+  .sheet1 {
+    width: 59.5%;
+    min-width: 349px;
+    height: 10px; 
+  }
+  
+  .sheet2 {
+    width: 58%;
+    min-width: 348px;
+    height: 10px;
+  }
+  .users-text {
+    text-align: center;
+    font-size: 1.5em;
+    margin:0.5em;
+    margin-top: 1em;
+    background-color: white;
+    color: black;
+    border: 3px solid purple;
+  }
+  ul.users {
+    background-color: rgb(197, 156, 235);
+    color: rgb(0, 0, 0);
+    padding: 1em;
+    column-count: 3;
+    column-gap: 2px; 
+    margin: 0.5em;
+    margin-bottom: 1em;
+  }
+  ul.users li {
+    background-color: rgba(123, 32, 151, 0.781);
+    color: white;
+    padding: 10px;
+    width: 300px;
+    border: none;
+  }
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
-
-*/
+  footer {
+    background-color: #242324;
+    color: white;
+    font-weight: bolder;
+    width: 100%;
+    padding: 3em;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+  }
+  
+  .footer-span {
+    color: blue;
+    font-family: "Source Code Pro", monospace;
+  }
