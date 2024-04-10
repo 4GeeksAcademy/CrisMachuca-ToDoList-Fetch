@@ -4,7 +4,72 @@ import React, {useState, useEffect} from "react";
 const TodoList = () => {
     const [inputValue, setInputValue] = useState("");
     const [tasks, setTasks] = useState([]);
+    const [userName, setUserName] = useState([]);
     const [users, setUsers] = useState([]);
+    const [newTask, setNewTask] = useState("")
+
+    // Crear usuario (POST)
+    function createUser () {
+        const requestOptions = {
+            method: 'POST',
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({ name: userName })
+        }
+        fetch(`https://playground.4geeks.com/todo/users/${userName}`, requestOptions)
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+
+    }
+
+    // Función para manejar el cambio en el input de nombre de usuario
+    const handleUserNameChange = (e) => {
+        setUserName(e.target.value); // Actualiza el estado userName con el valor del input
+    };
+
+    // Mostrar usuarios de la API (GET)
+    function showUsers () {
+        fetch("https://playground.4geeks.com/todo/users?offset=0&limit=100")
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+    }
+    // Crear tareas (POST)
+    function createTask () {
+        const requestOptions = {
+            method: 'POST',
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({ label: newTask })
+        }
+        fetch(`https://playground.4geeks.com/todo/todos/${userName}`, requestOptions)
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+
+    }
+    // Función para manejar el cambio en el input de nombre de usuario
+    const handleNewTask = (e) => {
+        setNewTask(e.target.value); // Actualiza el estado userName con el valor del input
+    };
+
+    // Mostrar tareas desde la API (GET)
+    function showTasks () {
+        fetch('https://playground.4geeks.com/todo/users/Cris')
+        .then((response) => response.json())
+        .then((data) => console.log(data.todos))
+    }
+    
+    // Eliminar tareas desde la API (DELETE)
+
+    function deleteTask () {
+        const requestOptions = {
+            method: 'DELETE',
+            header: {"Content-Type": "application/json"},
+            body: JSON.stringify()
+        };
+        fetch(`https://playground.4geeks.com/todo/users/&{id}`, requestOptions)
+        .then((data) => console.log(data.todo))
+    }
+    
+
+
 
 
     useEffect(() => {
@@ -19,7 +84,8 @@ const TodoList = () => {
             .catch(error => console.error('Error fetching users:', error));
     }, []); 
 
-
+    
+    
     // Función para manejar el cambio en el input
     const handleInputChange = (e) => {
         setInputValue(e.target.value); // Actualiza el estado inputValue con el valor del input
@@ -85,6 +151,27 @@ const TodoList = () => {
                             )}
 
                     </div>
+                    <div className="create-user">
+                    <input
+                    type="text"
+                    placeholder="Enter username"
+                    value={userName}
+                    onChange={handleUserNameChange}
+                />
+                            <button className="button-create-user" onClick={createUser}>Crear usuario</button>
+                            <button className="button-show-user" onClick={showUsers}>Mostrar usuario</button>
+                            <button className="button-show-user" onClick={showTasks}>Mostrar tareas</button>
+                            <button className="button-show-user" onClick={deleteTask}>Borrar tarea</button>
+                            
+                    <input
+                    type="text"
+                    placeholder="Enter task"
+                    value={newTask}
+                    onChange={handleNewTask}
+                />
+                <button className="button-show-user" onClick={createTask}>Crear tarea</button>
+                    </div>
+                    
                 <footer>
                     Designed by Cris Machuca for <span className="footer-span"> 4Geeks Academy</span>
                 </footer>

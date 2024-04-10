@@ -149,3 +149,23 @@ body {
     color: blue;
     font-family: "Source Code Pro", monospace;
   }
+
+  .create-user {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(222, 144, 230);
+    color: white;
+  }
+  .button-create-user {
+    visibility: visible;
+    background-color: darkblue;
+    opacity: 100%;
+    position: relative;
+  }
+  .button-show-user {
+    visibility: visible;
+    background-color: rgb(211, 18, 147);
+    color: white;
+    opacity: 100%;
+    position: relative;
+  }
