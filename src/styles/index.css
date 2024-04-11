@@ -35,6 +35,15 @@ body {
     font-size: 5em;
     text-shadow: 0px 3px 7px rgba(0,0,0,0.54);
   }
+  select {
+    
+    background-color: blueviolet;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
   
   input {
     margin-left: 30px;
@@ -109,11 +118,14 @@ body {
     height: 10px;
   }
   .users-text {
+    display: flex;
+    justify-content: center;
     text-align: center;
     font-size: 1.5em;
     margin:0.5em;
     margin-top: 1em;
-    background-color: white;
+    padding-top: 1em;
+    background-color: rgba(220, 181, 243, 0.795);
     color: black;
     border: 3px solid purple;
   }
@@ -124,7 +136,7 @@ body {
     column-count: 3;
     column-gap: 2px; 
     margin: 0.5em;
-    margin-bottom: 1em;
+    margin-bottom: 7em;
   }
   ul.users li {
     background-color: rgba(123, 32, 151, 0.781);
@@ -152,20 +164,22 @@ body {
 
   .create-user {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
+    
     background-color: rgb(222, 144, 230);
     color: white;
   }
-  .button-create-user {
-    visibility: visible;
-    background-color: darkblue;
-    opacity: 100%;
-    position: relative;
-  }
-  .button-show-user {
+  
+  .btn {
     visibility: visible;
     background-color: rgb(211, 18, 147);
     color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
     opacity: 100%;
     position: relative;
+    border-radius: 10px;
+    text-align: center;
   }
