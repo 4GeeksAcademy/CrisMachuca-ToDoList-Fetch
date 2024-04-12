@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 const TodoList = () => {
-    const [inputValue, setInputValue] = useState("");
+    
     const [tasks, setTasks] = useState([]);
     const [userName, setUserName] = useState("");
     const [users, setUsers] = useState([]);
@@ -20,6 +20,7 @@ const TodoList = () => {
             .then(data => {
                 // Actualiza el estado de usuarios con los nuevos datos
                 setUsers([...users, data]);
+                setUserName("")
             })
             .catch(error => console.error('Error creating user:', error));
     }
@@ -64,23 +65,6 @@ const TodoList = () => {
             .catch(error => console.error('Error creating task:', error));
     }
 
-    // Mostrar tareas desde la API (GET)
-    function showTasks() {
-        fetch(`https://playground.4geeks.com/todo/users/${userName}`)
-            .then(response => response.json())
-            .then(data => {
-                // Verifica si data.todos está definido antes de actualizar el estado
-                if (data.todos) {
-                    // Actualiza el estado de tareas con los datos obtenidos
-                    setTasks(data.todos);
-                } else {
-                    // Si data.todos no está definido, inicializa tasks como un array vacío
-                    setTasks([]);
-                }
-            })
-            .catch(error => console.error('Error fetching tasks:', error));
-    }
-
     // Mostrar tareas del usuario seleccionado desde la API (GET)
     function showUserTasks(user) {
         if (!user) {
@@ -101,12 +85,7 @@ const TodoList = () => {
         setNewTask(e.target.value); // Actualiza el estado newTask con el valor del input
     };
 
-    // Función para manejar el cambio en el input
-    const handleInputChange = (e) => {
-        setInputValue(e.target.value); // Actualiza el estado inputValue con el valor del input
-    };
-
-    // Función para manejar la tecla presionada en el input 
+    // Función para manejar la tecla presionada en el input ("enter")
     const handleKeyDown = (e) => {
         if (e.key === "Enter" && newTask.trim() !== "") {
             createTask(); // Llama a la función createTask si la tecla presionada es "Enter" y hay una nueva tarea ingresada
@@ -115,7 +94,7 @@ const TodoList = () => {
 
     // Función para eliminar una tarea
 const handleDeleteTask = (taskId, index) => {
-    // Realizar la solicitud DELETE a la API
+   
     fetch(`https://playground.4geeks.com/todo/todos/${taskId}`, {
         method: 'DELETE'
     })
@@ -132,7 +111,7 @@ const handleDeleteTask = (taskId, index) => {
     .catch(error => console.error('Error deleting task:', error));
 };
 
-    // Cargar usuarios al montar el componente
+    // Mostrar usuarios al cargar la página
     useEffect(() => {
         showUsers();
     }, []);
@@ -150,7 +129,7 @@ const handleDeleteTask = (taskId, index) => {
                         placeholder="Type a user name"
                         value={userName}
                         onChange={handleUserNameChange}
-                        onKeyDown={handleKeyDown} // Agregar el evento onKeyDown
+                        onKeyDown={handleKeyDown} 
                     />
                     <button className="btn button-create-user" onClick={createUser}>Create user</button>
                     
@@ -173,7 +152,7 @@ const handleDeleteTask = (taskId, index) => {
                     placeholder="What needs to be done?"
                     value={newTask}
                     onChange={handleNewTask}
-                    onKeyDown={handleKeyDown} // Agregar el evento onKeyDown
+                    onKeyDown={handleKeyDown} 
                 />
 
                 <ul>
